@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Nested Layouts & Forms</title>
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    
+    <header class="bg-light py-3 border-top border-primary border-3 shadow sticky-top">
+        <div class="container-lg">
+            <h1 class="text-primary fw-bold">Holiday Vibes</h1>
+        </div>
+    </header>
+    <!-- 
+        overall you have a 2 column layout.
+        Column one will have one image and some text
+        column two will have 4 columns within it and split so that each column takes up 50% of the available space (2 up)
+    -->
+    <section class="py-5">
+        <div class="container-lg">
+            <!-- flex parent for the main two column layout-->
+            <div class="row align-items-start">
+                <!-- column one and 2 are going to🇦
+                    - from 0 to 980px they all the space (all 12 columns)
+                    - take 50% of the space on large screens (981+) -->
+                <div class="col-md-12 col-lg-6 mb-3">
+                    <img class="img-fluid" src="img/winter-wonderland.jpg" alt="winter wonderland" />
+                    <h2 class="display-4 text-success mt-2">Winter Wonderland Festival</h2>
+                </div>
+                <!-- column 2 is a a flex-item but also a flex parent when nesting multiple columns/flex-items-->
+                <div class="row col-md-12 col-lg-6">
+                    <!-- on medium size screens + the content will take up 50% of the available space, meaning two columns will sit side by and on screen smaller than med they will stack. -->
+                    <div class="col-md-6 mb-3">
+                        <img class="img-fluid rounded mb-2" src="img/presents.jpg" alt="presents">
+                        <h3>Gift Wrap</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi labore repellat amet, odio facere a est corrupti voluptas sit eos aliquid dicta? Debitis itaque nihil recusandae. Quo molestiae magni minima.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <img class="img-fluid rounded mb-2" src="img/tree-oranaments.jpg" alt="red tree oranament"/>
+                        <h3>Holiday Decor</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nobis aliquid id voluptate blanditiis exercitationem enim necessitatibus praesentium dignissimos tenetur? Magni architecto excepturi, harum nisi nobis ratione numquam quae repellat.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <img class="img-fluid rounded mb-2" src="img/eleves.jpg" alt="eleves" >
+                        <h3>Elves</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nobis aliquid id voluptate blanditiis exercitationem enim necessitatibus praesentium dignissimos tenetur? Magni architecto excepturi, harum nisi nobis ratione numquam quae repellat.</p>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <img class="img-fluid rounded mb-2" src="img/christmas-cookies.jpg" alt="christmas noms">
+                        <h3>Holiday Baking</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus nobis aliquid id voluptate blanditiis exercitationem enim necessitatibus praesentium dignissimos tenetur? Magni architecto excepturi, harum nisi nobis ratione numquam quae repellat.</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="py-5 container-fluid bg-gradient bg-danger">
+            <div class="container-lg py-5">
+                <div class="row">
+                    <!-- 
+                        two column layout 
+                        - on small to med screen all content stacks vertically.
+                        - on medium size screens each column takes up 50% of the space
+                        - on large screens, column one take up 40% and column 2 takes up 60%
+                    -->
+                    <div class="col-md-6 col-lg-5 mb-3">
+                        <img class="img-fluid rounded" src="img/hot-chocolate-marshmellows.jpg" alt="hot chocolate">
+                        <h2 class="text-white mt-2">Let's grab a hot chocolate and chat</h2>
+                    </div>
+                    <div class="col-md-6 col-lg-7">
+                        <!-- form will have first name, last name (sit in a row), email and message area -->
+                        <form>
+                            <!-- first and last name will sit side-by-side on med - large screens -->
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="fname" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="fname">
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="lname" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lname" >
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" >
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">message</label>
+                            <textarea class="form-control" id="message"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button class="btn bg-white text-danger">Send Message!</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
